@@ -1,0 +1,4 @@
+migration problems
+make fields after finish a models
+not available to use default
+not available to use null
