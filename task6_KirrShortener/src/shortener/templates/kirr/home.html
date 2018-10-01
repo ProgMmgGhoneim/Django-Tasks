@@ -1,0 +1,39 @@
+{% extends '../base.html'%}
+{%block content%}
+<div class="container">
+  <div class="row">
+    <div class="text-center col-sm-12" style="margin:0 auto;">
+      <h1 style="color:#005A91">___________MMG______________ </h1>
+      <br>
+      <br>
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Shortener URL Task</h1>
+        <p class="lead"> Task talk about take the url from user and the shorten url to easly use </p>
+      </main>
+      <div class="col-sm-4 col-sm-offset-4">
+        <form method="post">
+          {% csrf_token %}
+          {{form.as_p}}
+          <button class="btn btn-primary" type="submit" name="button" > Submit</button>
+        </form>
+        {{url}}
+        {% if request.method == 'POST' %}
+          {% if create%}
+            <h1> Craeted</h1>
+          {% else %}
+            <h1>Exist </h1>
+            <p>{{object.Url}}</p>
+            <br>
+              <a href={{object.Url}}>https://127.0.0.1:8000/{{object.Shortcode}}</a>
+              <br>
+              <br>
+
+          {% endif %}
+        {% endif %}
+        <br>
+        <a method='GET' href="." style="font-size:20px;color:#005A91"> Try Agein </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}
